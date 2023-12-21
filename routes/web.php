@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DemoController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\SingleActionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// For Single Action Controller
+Route::get('/service', SingleActionController::class)->name('service');
+
+// For Resource Controller
+Route::resource('/photos', PhotoController::class);
+
+Route::get('/', [DemoController::class, 'index'])->name('home');
+Route::get('/about', [DemoController::class, 'about'])->name('about');
+
 Route::get('/contact/{name?}', function ($name = null) {
     $demo = "<h1>WsCube Turtorial</h1>";
     $data =  compact('name', 'demo');
     return view('contact')->with($data);
-});
-
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/service', function () {
-    return view('service');
-});
-
-
-Route::get('/about', function () {
-    return view('about');
 });

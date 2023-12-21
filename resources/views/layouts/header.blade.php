@@ -33,9 +33,9 @@
 
             <!-- Navigation Links (Hidden by default) -->
             <div id="navbar" class="hidden md:flex md:space-x-4 md:ml-4">
-                <a href="/" class="text-white">Home</a>
-                <a href="/about" class="text-white">About</a>
-                <a href="/service" class="text-white">Services</a>
+                <a href="{{route('home')}}" class="text-white">Home</a>
+                <a href="{{route('about')}}" class="text-white">About</a>
+                <a href="{{route('service')}}" class="text-white">Services</a>
                 <a href="/contact" class="text-white">Contact</a>
             </div>
         </div>
