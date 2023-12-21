@@ -13,15 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/contact/{name?}', function ($name = null) {
+    $demo = "<h1>WsCube Turtorial</h1>";
+    $data =  compact('name', 'demo');
+    return view('contact')->with($data);
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/demo/{name}/{id?}', function ($name, $id = null) {
-    $data = compact('name', 'id');
-    return view('demo')->with($data);
+Route::get('/service', function () {
+    return view('service');
 });
 
-Route::any('/test', function () {
-    echo "Testing";
+
+Route::get('/about', function () {
+    return view('about');
 });
