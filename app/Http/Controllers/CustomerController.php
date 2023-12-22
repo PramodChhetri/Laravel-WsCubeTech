@@ -41,5 +41,14 @@ class CustomerController extends Controller
 
         // Save the customer instance to the database
         $customer->save();
+
+        return redirect('/customers/view');
+    }
+
+    public function view()
+    {
+        $customers = Customer::all();
+        $data = compact('customers');
+        return view('customer-view')->with($data);
     }
 }

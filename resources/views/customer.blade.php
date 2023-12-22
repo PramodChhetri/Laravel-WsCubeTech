@@ -6,8 +6,17 @@
 
 @section('main-section')
 
+
 <div class="bg-white p-8 rounded shadow-md w-full max-w-3xl m-auto">
-    <h1 class="text-2xl font-bold mb-6">Customer</h1>
+    <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold mb-6">Customer</h1>
+
+        <a href="{{route('viewCustomerDetails')}}">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                View Customer
+            </button>
+        </a>
+    </div>
 
     <form action="{{ route('customerInsert') }}" method="POST">
         @csrf

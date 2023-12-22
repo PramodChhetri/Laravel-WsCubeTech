@@ -36,6 +36,8 @@ Route::get('/register', [RegistrationController::class, 'index'])->name('viewReg
 Route::post('/register', [RegistrationController::class, 'register'],)->name('register');
 Route::get('/customer', [CustomerController::class, 'index'])->name('viewCustomerPage');
 Route::post('/customer', [CustomerController::class, 'store'],)->name('customerInsert');
+Route::get('/customer/view', [CustomerController::class, 'view'])->name('viewCustomerDetails');
+
 Route::get('/', [DemoController::class, 'index'])->name('home');
 Route::get('/about', [DemoController::class, 'about'])->name('about');
 
