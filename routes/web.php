@@ -32,11 +32,11 @@ Route::get('/service', SingleActionController::class)->name('service');
 // For Resource Controller
 Route::resource('/photos', PhotoController::class);
 
-Route::get('/register', [RegistrationController::class, 'index'])->name('viewRegistrationPage');
-Route::post('/register', [RegistrationController::class, 'register'],)->name('register');
-Route::get('/customer', [CustomerController::class, 'index'])->name('viewCustomerPage');
-Route::post('/customer', [CustomerController::class, 'store'],)->name('customerInsert');
-Route::get('/customer/view', [CustomerController::class, 'view'])->name('viewCustomerDetails');
+Route::get('/register', [RegistrationController::class, 'index'])->name('register.index');
+Route::post('/register', [RegistrationController::class, 'store'],)->name('register.store');
+Route::get('/customers/add', [CustomerController::class, 'create'])->name('customer.create');
+Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');
+Route::get('/customers', [CustomerController::class, 'index'])->name('customer.index');
 
 Route::get('/', [DemoController::class, 'index'])->name('home');
 Route::get('/about', [DemoController::class, 'about'])->name('about');

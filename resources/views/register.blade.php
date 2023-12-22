@@ -10,7 +10,7 @@
 <div class="bg-white p-8 rounded shadow-md w-full max-w-3xl m-auto">
     <h1 class="text-2xl font-bold mb-6">Registration</h1>
 
-    <form action="{{route('register')}}" method="POST">
+    <form action="{{route('register.store')}}" method="POST">
         @csrf
 
         @php

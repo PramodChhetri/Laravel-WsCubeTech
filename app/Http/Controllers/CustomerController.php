@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function create()
     {
-        return view('customer');
+        return view('addcustomer');
     }
 
     public function store(Request $request)
@@ -25,30 +25,25 @@ class CustomerController extends Controller
             'country' => 'required',
         ]);
 
-        // Create a new Customer instance
         $customer = new Customer();
 
-        // Insert Query
         $customer->name = $request['name'];
         $customer->email = $request['email'];
         $customer->password = md5($request['password']);
-        // $customer->password = bcrypt($request['password']);
         $customer->gender = $request['gender'];
         $customer->dob = $request['dob'];
         $customer->address = $request['address'];
         $customer->state = $request['state'];
         $customer->country = $request['country'];
 
-        // Save the customer instance to the database
         $customer->save();
 
-        return redirect('/customers/view');
+        return redirect()->route('customer.index');
     }
 
-    public function view()
+    public function index()
     {
         $customers = Customer::all();
-        $data = compact('customers');
-        return view('customer-view')->with($data);
+        return view('customer', compact('customers'));
     }
 }

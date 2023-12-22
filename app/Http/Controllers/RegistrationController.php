@@ -11,7 +11,7 @@ class RegistrationController extends Controller
         return view('register');
     }
 
-    public function register(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',

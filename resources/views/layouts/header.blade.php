@@ -36,9 +36,9 @@
                 <a href="{{route('home')}}" class="text-white">Home</a>
                 <a href="{{route('about')}}" class="text-white">About</a>
                 <a href="{{route('service')}}" class="text-white">Services</a>
-                <a href="/contact" class="text-white">Contact</a>
-                <a href="{{route('viewRegistrationPage')}}" class="text-white">Register</a>
-                <a href="{{route('viewCustomerPage')}}" class="text-white">Customer</a>
+                <a href="{{url('/contact')}}" class="text-white">Contact</a>
+                <a href="{{route('register.index')}}" class="text-white">Register</a>
+                <a href="{{route('customer.index')}}" class="text-white">Customer</a>
             </div>
         </div>
     </nav>
