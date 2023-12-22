@@ -54,9 +54,18 @@
                             @endif
                         </td>
                         <td class="py-2 px-4">
-                            <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:shadow-outline-blue active:bg-red-800">
-                                Delete
-                            </button>
+                            <a href="">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                                    Edit
+                                </button>
+                            </a>
+                            {{-- <a href="{{ url('customers/delete/') }}/{{$customer->customer_id}}"> --}}
+                            <a href="{{ route('customer.delete',$customer->customer_id)}}">
+                                <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:shadow-outline-blue active:bg-red-800">
+                                    Delete
+                                </button>
+                            </a>
+                            
                         </td>
                     </tr>
                 @endforeach

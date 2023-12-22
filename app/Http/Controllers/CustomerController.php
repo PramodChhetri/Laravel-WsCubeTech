@@ -46,4 +46,13 @@ class CustomerController extends Controller
         $customers = Customer::all();
         return view('customer', compact('customers'));
     }
+
+    public function delete($id)
+    {
+        $customer = Customer::where('customer_id', '=', $id);
+        if ($customer) {
+            $customer->delete();
+        }
+        return redirect()->back();
+    }
 }

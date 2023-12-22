@@ -37,6 +37,8 @@ Route::post('/register', [RegistrationController::class, 'store'],)->name('regis
 Route::get('/customers/add', [CustomerController::class, 'create'])->name('customer.create');
 Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');
 Route::get('/customers', [CustomerController::class, 'index'])->name('customer.index');
+Route::get('/customers/delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
+
 
 Route::get('/', [DemoController::class, 'index'])->name('home');
 Route::get('/about', [DemoController::class, 'about'])->name('about');
