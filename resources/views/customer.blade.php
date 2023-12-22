@@ -54,7 +54,7 @@
                             @endif
                         </td>
                         <td class="py-2 px-4">
-                            <a href="">
+                            <a href="{{ route('customer.edit',$customer->customer_id)}}">
                                 <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
                                     Edit
                                 </button>

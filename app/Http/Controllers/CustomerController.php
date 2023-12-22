@@ -9,7 +9,10 @@ class CustomerController extends Controller
 {
     public function create()
     {
-        return view('addcustomer');
+        $url = url('/customers');
+        $title = "Add Customer";
+        $data = compact('url', 'title');
+        return view('addcustomer')->with($data);
     }
 
     public function store(Request $request)
@@ -54,5 +57,41 @@ class CustomerController extends Controller
             $customer->delete();
         }
         return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        $customer = Customer::where('customer_id', '=', $id)->first();
+        if (!$customer) {
+            return redirect()->back();
+        }
+        $url = url('/customers/update/') . "/" . $id;
+        $title = "Update Customer";
+        $data = compact('customer', 'url', 'title');
+        return view('addcustomer')->with($data);
+    }
+
+    public function update(Request $request, $customer_id)
+    {
+        $customer = Customer::where('customer_id', '=', $customer_id)->first();
+
+        if (!$customer) {
+            return redirect()->back();
+        }
+
+        $customer->name = $request['name'];
+        $customer->email = $request['email'];
+        if ($request->filled('password')) {
+            $customer->password = md5($request['password']);
+        }
+        $customer->gender = $request['gender'];
+        $customer->dob = $request['dob'];
+        $customer->address = $request['address'];
+        $customer->state = $request['state'];
+        $customer->country = $request['country'];
+
+        $customer->save();
+
+        return redirect()->route('customer.index');
     }
 }

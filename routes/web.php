@@ -38,6 +38,9 @@ Route::get('/customers/add', [CustomerController::class, 'create'])->name('custo
 Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');
 Route::get('/customers', [CustomerController::class, 'index'])->name('customer.index');
 Route::get('/customers/delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
+Route::get('/customers/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
+Route::post('/customers/update/{customer_id}', [CustomerController::class, 'update'])->name('customer.update');
+
 
 
 Route::get('/', [DemoController::class, 'index'])->name('home');
