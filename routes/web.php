@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\RegistrationController;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Customer table details
-Route::get('/customers', function () {
+Route::get('/customertable', function () {
     $customers = Customer::all();
     echo "<pre>";
     print_r($customers->toArray());
@@ -33,6 +34,8 @@ Route::resource('/photos', PhotoController::class);
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('viewRegistrationPage');
 Route::post('/register', [RegistrationController::class, 'register'],)->name('register');
+Route::get('/customer', [CustomerController::class, 'index'])->name('viewCustomerPage');
+Route::post('/customer', [CustomerController::class, 'store'],)->name('customerInsert');
 Route::get('/', [DemoController::class, 'index'])->name('home');
 Route::get('/about', [DemoController::class, 'about'])->name('about');
 

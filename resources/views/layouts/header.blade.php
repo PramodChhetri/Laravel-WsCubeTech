@@ -37,7 +37,8 @@
                 <a href="{{route('about')}}" class="text-white">About</a>
                 <a href="{{route('service')}}" class="text-white">Services</a>
                 <a href="/contact" class="text-white">Contact</a>
-                <a href="{{route('register')}}" class="text-white">Register</a>
+                <a href="{{route('viewRegistrationPage')}}" class="text-white">Register</a>
+                <a href="{{route('viewCustomerPage')}}" class="text-white">Customer</a>
             </div>
         </div>
     </nav>
