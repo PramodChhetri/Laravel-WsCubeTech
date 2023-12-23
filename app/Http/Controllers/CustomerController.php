@@ -73,6 +73,8 @@ class CustomerController extends Controller
 
     public function update(Request $request, $customer_id)
     {
+        // customPrint($request->all());
+        // die;
         $customer = Customer::where('customer_id', '=', $customer_id)->first();
 
         if (!$customer) {
