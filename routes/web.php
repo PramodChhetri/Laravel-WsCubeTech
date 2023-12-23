@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\PhotoController;
@@ -19,6 +20,10 @@ use Symfony\Component\HttpFoundation\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Implementing  laravelcollective/html for contact form. You can also use spatie/laravel-html.
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 // Handlinh session
