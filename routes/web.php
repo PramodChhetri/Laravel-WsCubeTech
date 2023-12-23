@@ -7,6 +7,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SingleActionController;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,25 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+// Handlinh session
+Route::get('get-all-session', function () {
+    $session = session()->all();
+    customPrint($session);
+});
+Route::get('set-session', function (Request $request) {
+    $request->session()->put('user_name', 'WsCube Tech');
+    $request->session()->put('user_id', 2);
+    $request->session()->flash('session', "success");
+    return redirect('get-all-session');
+});
+Route::get('destroy-session', function () {
+    session()->forget('user_name');
+    session()->forget('user_id');
+    return redirect('get-all-session');
+});
+
 
 // Customer table details
 Route::get('/customertable', function () {

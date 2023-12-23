@@ -6,7 +6,13 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <!-- Left Section -->
             <div class="mb-4 md:mb-0 md:mr-4">
-                <h2 class="text-2xl font-bold mb-2">WsCube</h2>
+                <h2 class="text-2xl font-bold mb-2">
+                    @if (session()->has('user_name'))
+                        {{session()->get('user_name')}}
+                    @else
+                        Guest
+                    @endif
+                </h2>
                 <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
 
