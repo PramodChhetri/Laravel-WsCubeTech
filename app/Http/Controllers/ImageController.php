@@ -20,7 +20,6 @@ class ImageController extends Controller
         $filename = time() . ".ws." . $request->file('image')->getClientOriginalExtension();
 
         $request->file('image')->storeAs('public/uploads', $filename);
-
         echo $filename;
     }
 }

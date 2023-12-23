@@ -9,6 +9,15 @@
 
     @vite('resources/css/app.css')
 
+    {{-- Include jQuery --}}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+{{-- Include Dropzone CSS and JS --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+
+
 </head>
 
 <body class="bg-gray-100 ">
