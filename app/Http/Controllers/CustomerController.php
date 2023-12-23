@@ -96,4 +96,28 @@ class CustomerController extends Controller
 
         return redirect()->route('customer.index');
     }
+
+    public function trash()
+    {
+        $customers = Customer::onlyTrashed()->get();
+        return view('customer-trash', compact('customers'));
+    }
+
+    public function restore($id)
+    {
+        $customer = Customer::where('customer_id', '=', $id);
+        if ($customer) {
+            $customer->restore();
+        }
+        return redirect()->back();
+    }
+
+    public function forceDelete($id)
+    {
+        $customer = Customer::where('customer_id', '=', $id);
+        if ($customer) {
+            $customer->forceDelete();
+        }
+        return redirect()->back();
+    }
 }

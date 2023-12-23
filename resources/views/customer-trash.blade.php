@@ -1,26 +1,19 @@
 @extends('layouts.main')
 
 @push('title')
-    <title>Customer-WsCube</title>
+    <title>CustomerTrash-WsCube</title>
 @endpush
 
 @section('main-section')
 
 <div class="bg-white p-8 rounded shadow-md w-full">
     <div class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold mb-6">Customer</h1>
-        <div>
-            <a href="{{ route('customer.create') }}">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
-                    Add Customer
-                </button>
-            </a>
-            <a href="{{ route('customer.trash') }}">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
-                    Trash Bin
-                </button>
-            </a>
-        </div>
+        <h1 class="text-2xl font-bold mb-6">Customer Trash</h1>
+        <a href="{{ route('customer.index') }}">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                Back
+            </button>
+        </a>
     </div>
     <div class="overflow-x-auto">
         <table class="min-w-full border bg-white">
@@ -61,12 +54,12 @@
                             @endif
                         </td>
                         <td class="py-2 px-4">
-                            <a href="{{ route('customer.edit',$customer->customer_id)}}">
+                            <a href="{{ route('customer.restore',$customer->customer_id)}}">
                                 <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
-                                    Edit
+                                    Restore
                                 </button>
                             </a>
-                            <a href="{{ route('customer.delete',$customer->customer_id)}}">
+                            <a href="{{ route('customer.forcedelete',$customer->customer_id)}}">
                                 <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:shadow-outline-blue active:bg-red-800">
                                     Delete
                                 </button>

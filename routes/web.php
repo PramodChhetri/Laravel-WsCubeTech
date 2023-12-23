@@ -60,6 +60,11 @@ Route::get('/customers', [CustomerController::class, 'index'])->name('customer.i
 Route::get('/customers/delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
 Route::get('/customers/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
 Route::post('/customers/update/{customer_id}', [CustomerController::class, 'update'])->name('customer.update');
+Route::get('/customers/trash', [CustomerController::class, 'trash'])->name('customer.trash');
+Route::get('/customers/restore/{id}', [CustomerController::class, 'restore'])->name('customer.restore');
+Route::get('/customers/forcedelete/{id}', [CustomerController::class, 'forceDelete'])->name('customer.forcedelete');
+
+
 
 
 
