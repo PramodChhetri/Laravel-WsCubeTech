@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SingleActionController;
@@ -68,6 +69,8 @@ Route::post('/customers/update/{customer_id}', [CustomerController::class, 'upda
 Route::get('/customers/trash', [CustomerController::class, 'trash'])->name('customer.trash');
 Route::get('/customers/restore/{id}', [CustomerController::class, 'restore'])->name('customer.restore');
 Route::get('/customers/forcedelete/{id}', [CustomerController::class, 'forceDelete'])->name('customer.forcedelete');
+Route::get('/upload', [ImageController::class, 'showForm'])->name('upload.form');
+Route::post('/upload', [ImageController::class, 'upload'])->name('upload.image');
 
 
 
