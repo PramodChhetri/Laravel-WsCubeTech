@@ -38,7 +38,7 @@
                         <td class="py-2 px-4">{{ $customer->name }}</td>
                         <td class="py-2 px-4">{{ $customer->email }}</td>
                         <td class="py-2 px-4">{{ $customer->gender }}</td>
-                        <td class="py-2 px-4">{{getFormattedDate($customer->dob)}}</td>
+                        <td class="py-2 px-4">{{ $customer->dob }}</td>
                         <td class="py-2 px-4">{{ $customer->address }}</td>
                         <td class="py-2 px-4">{{ $customer->state }}</td>
                         <td class="py-2 px-4">{{ $customer->country }}</td>
